@@ -1,30 +1,36 @@
 import jsonfile from "jsonfile";
 import moment from "moment";
 import simpleGit from "simple-git";
+import random from "random";
 
 const path = "./data.json";
+const git = simpleGit();
 
-// x = number of weeks back, y = number of days back from that
-const markCommit = (5, 1) => {
+// One backdated commit. x = weeks back, y = days back from that.
+const markCommit = (x, y) => {
     const date = moment()
         .subtract(1, "y")
         .add(1, "d")
-        .subtract(5, "w")
-        .subtract(1, "d")
+        .subtract(x, "w")
+        .subtract(y, "d")
         .format("YYYY-MM-DD HH:mm:ss");
 
     const data = { date };
 
-    jsonfile.writeFile(path, data)
-        .then(() => {
-            console.log("Saved:", data);
-            return simpleGit()
-                .add([path])
-                .commit(date, { "--date": date })
-                .push();
-        })
+    return jsonfile.writeFile(path, data)
+        .then(() => git.add([path]).commit(date, { "--date": date }).push())
+        .then(() => console.log("Committed:", date))
         .catch((err) => console.error("Error:", err));
 };
 
-// Example: commit as if it were 1 week and 1 day ago
-markCommit(5, 1 );
+// 50 commits on random days within roughly the past year, in series.
+const makeCommits = async (n) => {
+    for (let i = 0; i < n; i++) {
+        const x = random.int(0, 54); // 0-54 weeks back
+        const y = random.int(0, 6);  // 0-6 days back from that
+        await markCommit(x, y);
+    }
+    console.log(`Done: ${n} commits made.`);
+};
+
+makeCommits(50);
