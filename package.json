@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Making the work done",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,9 +14,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/u0ke/0ke/issues"
   },
-  "homepage": "https://github.com/u0ke/0ke#readme"
+  "homepage": "https://github.com/u0ke/0ke#readme",
+  "dependencies": {
+    "jsonfile": "^6.2.1",
+    "moment": "^2.30.1"
+  }
 }
