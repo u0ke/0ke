@@ -5,11 +5,11 @@ import simpleGit from "simple-git";
 const path = "./data.json";
 
 // x = number of weeks back, y = number of days back from that
-const markCommit = (4, 1) => {
+const markCommit = (5, 1) => {
     const date = moment()
         .subtract(1, "y")
         .add(1, "d")
-        .subtract(4, "w")
+        .subtract(5, "w")
         .subtract(1, "d")
         .format("YYYY-MM-DD HH:mm:ss");
 
@@ -27,4 +27,4 @@ const markCommit = (4, 1) => {
 };
 
 // Example: commit as if it were 1 week and 1 day ago
-markCommit(4, 1 );
+markCommit(5, 1 );
