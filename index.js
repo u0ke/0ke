@@ -33,4 +33,4 @@ const makeCommits = async (n) => {
     console.log(`Done: ${n} commits made.`);
 };
 
-makeCommits(50);
+makeCommits(154);
