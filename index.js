@@ -26,7 +26,7 @@ const markCommit = (x, y) => {
 // 50 commits on random days within roughly the past year, in series.
 const makeCommits = async (n) => {
     for (let i = 0; i < n; i++) {
-        const x = random.int(0, 54); // 0-54 weeks back
+        const x = random.int(0, 154); // 0-154 weeks back
         const y = random.int(0, 6);  // 0-6 days back from that
         await markCommit(x, y);
     }
