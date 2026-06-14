@@ -1,0 +1,21 @@
+{
+  "name": "0ke",
+  "version": "1.0.0",
+  "description": "Making the work done",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u0ke/0ke.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/u0ke/0ke/issues"
+  },
+  "homepage": "https://github.com/u0ke/0ke#readme"
+}
